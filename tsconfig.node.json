@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "#/*": ["./types/*"]
+    },
+    "types": ["unplugin-vue-define-options"],
+    // "jsx": "react-jsx",
+    "jsx": "preserve"
+  }
+  // "include": ["vite.config.ts"]
+}

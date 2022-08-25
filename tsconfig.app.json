@@ -1,0 +1,30 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "types": ["unplugin-vue-define-options"],
+
+    "paths": {
+      "@/*": ["./src/*"],
+      "#/*": ["./types/*"]
+    }
+  },
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "types/**/*.d.ts",
+    "types/**/*.ts",
+    "build/**/*.ts",
+    "build/**/*.d.ts",
+    "mock/**/*.ts",
+    "@/stores/modules/*.ts",
+    "./vite.config.ts",
+    "vite.config.ts"
+  ],
+  "exclude": ["src/**/__tests__/*"],
+
+}
