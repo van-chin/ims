@@ -9,6 +9,8 @@ import { configWindicss } from "./windicss";
 
 import { configTheme } from "./theme";
 
+import { configHtmlPlugin } from './html';
+
 import { configSvgIconsPlugin } from "./svgSprite";
 
 // import { configDefineOptions } from "./defineOptions";
@@ -36,6 +38,9 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   // console.info("configDefineOptions() =>", configDefineOptions());
 
   // vitePlugins.push(configDefineOptions());
+
+  // vite-plugin-html
+  vitePlugins.push(configHtmlPlugin(viteEnv, isBuild));
 
   // vite-plugin-windicss
   vitePlugins.push(configWindicss());
