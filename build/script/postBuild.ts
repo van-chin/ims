@@ -1,6 +1,7 @@
 // #!/usr/bin/env node
 
 import { runBuildConfig } from './buildConf';
+// @ts-ignore
 import chalk from 'chalk';
 
 import pkg from '../../package.json';

@@ -2,7 +2,9 @@
  * Generate additional configuration files when used for packaging. The file can be configured with some global variables, so that it can be changed directly externally without repackaging
  */
 import { GLOB_CONFIG_FILE_NAME, OUTPUT_DIR } from '../constant';
+// @ts-ignore
 import fs from 'fs-extra';
+// @ts-ignore
 import chalk from 'chalk';
 
 import { getEnvConfig, getRootPath } from '../utils';
