@@ -1,10 +1,11 @@
 <template>
   <div :class="prefixCls">
-    <Icon :class="`${prefixCls}-logo`" size="32"  :icon="props.icon"></Icon>
+    <span :class="`${prefixCls}-logo`"> <Icon  size="32"  :icon="props.icon"></Icon></span>
+
     <span :class="`${prefixCls}-name`">{{ props.name }}</span>
 
     <span :class="`${prefixCls}-trigger`">
-      <Icon  size="20"  :icon="`ant-design:menu-unfold-outlined`"></Icon>
+      <Icon  size="22" @click="toggleMenuDrawer" :icon="`ant-design:menu-unfold-outlined`"></Icon>
     </span>
 
   </div>
@@ -14,6 +15,8 @@
 
 import { Icon } from "@/components/Icon";
 import {useStyle} from "@/hooks/web/useStyle";
+import {useAppInject} from "@/hooks/web/useAppInject";
+import useLayoutsStore from "@/stores/modules/layoutsStore";
 
 const { prefixCls } = useStyle("app-logo");
 
@@ -34,6 +37,23 @@ const props = defineProps({
 })
 // ant-design:appstore-outlined
 
+const layoutsStore = useLayoutsStore();
+
+const { getIsMobile } = useAppInject();
+
+
+
+const toggleMenuDrawer = () => {
+  console.info('toggleMenuDrawer');
+  if(getIsMobile.value) {
+    layoutsStore.msAsiderDrawerVisible(true);
+    // layoutsStore.toggleAsiderDrawer();
+    // drawerVisible.value = !drawerVisible.value;
+  }
+}
+
+
+
 </script>
 
 
@@ -42,10 +62,13 @@ const props = defineProps({
 
 .@{prefix-cls} {
   width: 100%;
-
+  height: 100%;
   @apply flex justify-center items-center;
   &-logo {
     cursor: pointer;
+    width: 48px;
+    @apply flex justify-center items-center;
+    //border: 1px solid red;
   }
   &-name {
     cursor: pointer;
@@ -55,7 +78,8 @@ const props = defineProps({
   &-trigger {
     //border: 1px solid  red;
     cursor: pointer;
-    @apply ml-6px sm:hidden;
+    @apply px-16px sm:hidden;
+
   }
 }
 </style>

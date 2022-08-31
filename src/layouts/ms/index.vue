@@ -3,7 +3,7 @@
 
   <a-drawer
       v-if="getIsMobile"
-      v-model:visible="drawerVisible"
+      v-model:visible="layoutsConfig.msLayout.asiderDrawerVisible"
       width="210"
       :closable="false"
       :bodyStyle="navMenuDrawerBodyStyle"
@@ -61,23 +61,17 @@
       <div :class="`${prefixCls}-main-header-nav-menu-bar`">
         <div :class="`${prefixCls}-main-header-nav-menu-bar-app-logo`">
           <app-logo></app-logo>
-<!--          <div> <Icon @click="toggleMenuDrawer"  icon="ant-design:menu-outlined"></Icon></div>-->
         </div>
         <div :class="`${prefixCls}-main-header-nav-menu-bar-menu`">
-
-
           <nav-menu
               :data="states.topMenus"
               mode="horizontal"
               class="nav-menu"
               :props="siderMenuProps"
-
               :inline-collapsed="states.collapsed"
               v-model:openKeys="states.openKeys"
               v-model:selectedKeys="states.menuSelectedKeys"
           ></nav-menu>
-
-
         </div>
         <div :class="`${prefixCls}-main-header-nav-menu-bar-oths`" >
 <!--          <span @click="toggleMenuDrawer" class="bg-gray-500">trigger</span> header  {{ drawerVisible }} - getIsMobile {{ getIsMobile }} {{ screenCls }} realWidth:{{ realWidth }}-->
@@ -96,12 +90,6 @@
         </div>
       </div>
       <TabBar></TabBar>
-
-<!--      <div :class="`${prefixCls}-main-header-nav-tabs-bar`">-->
-<!--        <div :class="`${prefixCls}-main-header-nav-tabs-bar-prev`">prev</div>-->
-<!--        <div :class="`${prefixCls}-main-header-nav-tabs-bar-items`">tab-item</div>-->
-<!--        <div :class="`${prefixCls}-main-header-nav-tabs-bar-next`">next</div>-->
-<!--      </div>-->
     </div>
     <div :class="`${prefixCls}-main-content`"  id="ims-ms-layout-main-content" >
 
@@ -279,7 +267,7 @@ const states = computed(() => {
 
 
         &-app-logo {
-          border: 1px solid red;
+          //border: 1px solid red;
           @apply flex justify-center items-center sm:hidden;
 
         }

@@ -39,10 +39,9 @@ const useLayoutsStore = defineStore("layouts", {
             layoutsConfig: {
               msLayout:{
                   inlineCollapsed:false,
+                  asiderDrawerVisible:false,
               }
             },
-
-
             tiggerIcon: "ant-design:menu-fold-outlined",
             collapsed: undefined,
             headerBrandVisible: false,
@@ -1183,6 +1182,10 @@ const useLayoutsStore = defineStore("layouts", {
     },
 
     actions: {
+        msAsiderDrawerVisible(visible:boolean) {
+            console.info('toggleAsiderDrawer => store',visible);
+          this.layoutsConfig.msLayout.asiderDrawerVisible =  !this.layoutsConfig.msLayout.asiderDrawerVisible
+        },
         setLayouts(config: DeepPartial<LayoutsConfig>, scope: string = "ms") {
             console.info("config =>", config);
             console.info("scope =>", scope);

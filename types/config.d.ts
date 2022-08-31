@@ -88,6 +88,7 @@ export interface MsLayoutSetting {
   // 左侧边栏宽度
   asiderWidth?: number;
   inlineCollapsed?: boolean;
+  asiderDrawerVisible?: boolean;
 }
 
 export interface LayoutsConfig {
