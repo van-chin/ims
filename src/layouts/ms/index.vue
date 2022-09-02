@@ -100,7 +100,7 @@
         </div>
       </a-back-top>
     </div>
-    <div :class="`${prefixCls}-main-footer`" >footer {{ screenCls }}  - {{ asiderStyles }}</div>
+    <div :class="`${prefixCls}-main-footer`" >footer</div>
   </div>
 </div>
 </template>
