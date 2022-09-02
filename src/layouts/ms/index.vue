@@ -14,7 +14,7 @@
 
   >
     <template #title>
-      <div class="dd text-white">华医惠康</div>
+      <app-logo :atDrawer="true"></app-logo>
     </template>
     <nav-menu
         :data="states.navMenus"
@@ -28,7 +28,7 @@
 
   </a-drawer>
 
-  <div :class="`${prefixCls}-asider`" v-else >
+  <div :class="`${prefixCls}-asider`" :style="asiderStyles"  v-else >
     <div :class="`${prefixCls}-asider-header`" >
       <app-logo></app-logo>
     </div>
@@ -47,11 +47,7 @@
       </div>
     </div>
     <div  :class="`${prefixCls}-asider-footer`" >
-      <Icon icon="ant-design:menu-fold-outlined"></Icon>
-
-
-
-
+      <Icon icon="ant-design:menu-fold-outlined" @click="toggleAsider"></Icon>
 
     </div>
   </div>
@@ -104,7 +100,7 @@
         </div>
       </a-back-top>
     </div>
-    <div :class="`${prefixCls}-main-footer`" >footer</div>
+    <div :class="`${prefixCls}-main-footer`" >footer {{ screenCls }}  - {{ asiderStyles }}</div>
   </div>
 </div>
 </template>
@@ -188,10 +184,39 @@ const navMenuDrawerHeaderStyle = {
   color:'#fff',
   textAlign:'center',
   backgroundColor:'#001529',
+  borderBottom:'1px solid transparent'
+}
+
+// CSS Modules
+
+
+const toggleAsider = () => {
+  layoutsStore.msToggleAsider();
 }
 
 
+const cssModules = useCssModule('abc')
 
+console.info('cssModules =>',cssModules);
+
+
+// const asiderStyles = reactive({
+//   width:'210px',
+// })
+
+const asiderStyles = computed(()=>{
+  if(layoutsConfig.msLayout.inlineCollapsed) {
+    return {
+      width: '80px !important',
+      minWidth:'80px !important'
+    }
+  } else {
+    return {
+      width: '210px !important',
+      minWidth:'210px !important'
+    }
+  }
+});
 
 //
 
@@ -213,6 +238,32 @@ const states = computed(() => {
 
 </script>
 
+<style lang="less" module>
+.span1 {
+  color: green;
+  font-size: 30px;
+}
+
+.span2 {
+  color: green;
+  font-size: 30px;
+}
+
+</style>
+
+<style lang="less" module="abc">
+.span21 {
+  color: green;
+  font-size: 30px;
+}
+
+.span22 {
+  color: green;
+  font-size: 30px;
+}
+
+</style>
+
 <style lang="less" scoped>
 @prefix-cls: ~'@{namespace}-ms-layout';
 
@@ -224,7 +275,9 @@ const states = computed(() => {
   @apply flex;
   &-asider {
     background-color: #001529;
-    @apply w-210px flex flex-col md:(w-210px min-w-210px) sm:(w-80px) <sm:hidden;
+    @apply w-210px flex flex-col md:(w-210px) sm:(w-80px) <sm:hidden;
+
+
 
     &-header {
       //box-shadow: 0 1px 4px 1px #001529;
@@ -327,6 +380,7 @@ const states = computed(() => {
       &::-webkit-scrollbar {
         //width: 0;
         display: none;
+
       }
 
       .ant-back-top {

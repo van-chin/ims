@@ -1186,6 +1186,11 @@ const useLayoutsStore = defineStore("layouts", {
             console.info('toggleAsiderDrawer => store',visible);
           this.layoutsConfig.msLayout.asiderDrawerVisible =  !this.layoutsConfig.msLayout.asiderDrawerVisible
         },
+
+        msToggleAsider() {
+
+            this.layoutsConfig.msLayout.inlineCollapsed =  !this.layoutsConfig.msLayout.inlineCollapsed
+        },
         setLayouts(config: DeepPartial<LayoutsConfig>, scope: string = "ms") {
             console.info("config =>", config);
             console.info("scope =>", scope);
