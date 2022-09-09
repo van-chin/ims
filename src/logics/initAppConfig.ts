@@ -6,14 +6,14 @@ import type { ProjectConfig } from "#/config";
 import { PROJ_CFG_KEY } from "@/enums/cacheEnum";
 import projectSetting from "@/settings/projectSetting";
 
-import {
-  updateHeaderBgColor,
-  updateSidebarBgColor,
-} from "@/logics/theme/updateBackground";
-import { updateColorWeak } from "@/logics/theme/updateColorWeak";
-import { updateGrayMode } from "@/logics/theme/updateGrayMode";
-import { updateDarkTheme } from "@/logics/theme/dark";
-import { changeTheme } from "@/logics/theme";
+// import {
+//   updateHeaderBgColor,
+//   updateSidebarBgColor,
+// } from "@/logics/theme/updateBackground";
+// import { updateColorWeak } from "@/logics/theme/updateColorWeak";
+// import { updateGrayMode } from "@/logics/theme/updateGrayMode";
+// import { updateDarkTheme } from "@/logics/theme/dark";
+// import { changeTheme } from "@/logics/theme";
 
 import { useAppStore } from "@/stores/modules/appStore";
 import { useLocaleStore } from "@/stores/modules/localeStore";
@@ -44,25 +44,25 @@ export function initAppConfigStore() {
   } = projCfg;
   try {
     if (themeColor && themeColor !== primaryColor) {
-      changeTheme(themeColor);
+      // changeTheme(themeColor);
     }
 
-    grayMode && updateGrayMode(grayMode);
-    colorWeak && updateColorWeak(colorWeak);
+    // grayMode && updateGrayMode(grayMode);
+    // colorWeak && updateColorWeak(colorWeak);
   } catch (error) {
     console.log(error);
   }
   appStore.setProjectConfig(projCfg);
 
   // init dark mode
-  updateDarkTheme(darkMode);
-  if (darkMode === ThemeEnum.DARK) {
-    updateHeaderBgColor();
-    updateSidebarBgColor();
-  } else {
-    headerBgColor && updateHeaderBgColor(headerBgColor);
-    bgColor && updateSidebarBgColor(bgColor);
-  }
+  // updateDarkTheme(darkMode);
+  // if (darkMode === ThemeEnum.DARK) {
+  //   updateHeaderBgColor();
+  //   updateSidebarBgColor();
+  // } else {
+  //   headerBgColor && updateHeaderBgColor(headerBgColor);
+  //   bgColor && updateSidebarBgColor(bgColor);
+  // }
   // init store
   localeStore.initLocale();
 

@@ -7,9 +7,7 @@ import { configMkcert } from "./mkcert";
 
 import { configWindicss } from "./windicss";
 
-import { configTheme } from "./theme";
 
-import { configHtmlPlugin } from './html';
 
 import { configSvgIconsPlugin } from "./svgSprite";
 
@@ -39,8 +37,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
 
   // vitePlugins.push(configDefineOptions());
 
-  // vite-plugin-html
-  vitePlugins.push(configHtmlPlugin(viteEnv, isBuild));
+
 
   // vite-plugin-windicss
   vitePlugins.push(configWindicss());
@@ -53,8 +50,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   // vite-plugin-svg-icons
   vitePlugins.push(configSvgIconsPlugin(isBuild));
 
-  // vite-plugin-theme
-  vitePlugins.push(configTheme(isBuild));
+
 
   return vitePlugins;
 }
