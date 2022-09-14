@@ -14,10 +14,16 @@ import {useAppStore} from '@/stores/modules/appStore';
 import {MenuModeEnum, MenuTypeEnum} from '@/enums/menuEnum';
 import useLayoutsStore from "@/stores/modules/layoutsStore";
 
-defineOptions({
-  name:'AppProvider',
-  inheritAttrs:false,
-})
+
+
+// console.info(defineOptions());
+
+// defineOptions({
+//   name:'AppProvider',
+//   inheritAttrs:false,
+// })
+
+
 
 const props = defineProps({
   /**

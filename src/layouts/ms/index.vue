@@ -70,7 +70,7 @@
           ></nav-menu>
         </div>
         <div :class="`${prefixCls}-main-header-nav-menu-bar-oths`" >
-<!--          <span @click="toggleMenuDrawer" class="bg-gray-500">trigger</span> header  {{ drawerVisible }} - getIsMobile {{ getIsMobile }} {{ screenCls }} realWidth:{{ realWidth }}-->
+          123
         </div>
         <div :class="`${prefixCls}-main-header-nav-menu-bar-actions`">
           <AppSearcher></AppSearcher>

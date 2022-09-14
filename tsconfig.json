@@ -30,7 +30,7 @@
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "types": ["unplugin-vue-define-options"]
+    "types": ["unplugin-vue-macros/macros-global" /* ... */]
   },
 
   "include": [

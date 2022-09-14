@@ -6,7 +6,7 @@
       "@/*": ["./src/*"],
       "#/*": ["./types/*"]
     },
-    "types": ["unplugin-vue-define-options"],
+    "types": ["unplugin-vue-define-options/macros-global" /* ... */],
     // "jsx": "react-jsx",
     "jsx": "preserve"
   }

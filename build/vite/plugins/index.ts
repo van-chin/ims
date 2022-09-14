@@ -1,5 +1,5 @@
 import type { PluginOption } from "vite";
-import vue from "@vitejs/plugin-vue";
+
 
 import { configAutoImport } from "./autoImport";
 
@@ -11,9 +11,9 @@ import { configWindicss } from "./windicss";
 
 import { configSvgIconsPlugin } from "./svgSprite";
 
-// import { configDefineOptions } from "./defineOptions";
+import { configVueMacros } from "./macros";
 
-import DefineOptions from "unplugin-vue-define-options/vite";
+
 
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   const {
@@ -25,19 +25,9 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     VITE_USE_SERVER_HTTPS,
   } = viteEnv;
 
-  const vitePlugins: (PluginOption | PluginOption[])[] = [
-    // have to
-    vue(),
-    DefineOptions(),
-  ];
-
-  // unplugin-vue-define-options
-
-  // console.info("configDefineOptions() =>", configDefineOptions());
-
-  // vitePlugins.push(configDefineOptions());
-
-
+  const vitePlugins: (PluginOption | PluginOption[])[] = [];
+  // necessary
+  vitePlugins.push(configVueMacros());
 
   // vite-plugin-windicss
   vitePlugins.push(configWindicss());
