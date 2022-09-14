@@ -13,6 +13,8 @@ import { configSvgIconsPlugin } from "./svgSprite";
 
 import { configVueMacros } from "./macros";
 
+import { configHtmlPlugin } from './html';
+
 
 
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
@@ -39,6 +41,10 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
 
   // vite-plugin-svg-icons
   vitePlugins.push(configSvgIconsPlugin(isBuild));
+
+
+  // vite-plugin-html
+  vitePlugins.push(configHtmlPlugin(viteEnv, isBuild));
 
 
 

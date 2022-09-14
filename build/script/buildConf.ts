@@ -43,5 +43,7 @@ function createConfig(params: CreateConfigParams) {
 export function runBuildConfig() {
   const config = getEnvConfig();
   const configFileName = getConfigFileName(config);
+
+  console.info('configFileName =>',configFileName);
   createConfig({ config, configName: configFileName, configFileName: GLOB_CONFIG_FILE_NAME });
 }
