@@ -1,3 +1,10 @@
 kind: pipeline
 type: docker #在docker runner中运行
 name: web
+
+
+steps:
+- name: greeting
+  commands:
+  - echo hello
+  - echo world
