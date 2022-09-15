@@ -12,6 +12,7 @@ steps:
     image: node
     commands:
       - git clone http://Van:0.1234@192.168.100.136:3000/ims/ims.chin.ink.git
-      - git version
+      - git status
+      - git log
       - echo hello world
       - echo ok sucess
