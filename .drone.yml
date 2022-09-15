@@ -4,6 +4,7 @@ name: docker-test
 
 steps:
   - name: t1
+    image: node
     commands:
       - echo "hello t1"
       - echo "hello vv"
