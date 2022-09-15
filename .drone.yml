@@ -35,6 +35,15 @@ steps:
   - name: build-image
     image: plugins/docker
     depends_on: [build-code]
+    settings:
+      username: inlins
+      password: dckh.1234
+      dockerfile: deploy/Dockerfile
+      repo: ims/v1
+      tags:
+        - latest
+        - 0.0.1
     commands:
       - echo build image
       - echo build for image
+
