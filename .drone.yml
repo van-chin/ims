@@ -1,10 +1,12 @@
 kind: pipeline
-type: docker #在docker runner中运行
-name: docker-test
+type: exec
+name: default
+
+platform:
+  os: linux
+  arch: amd64
 
 steps:
-  - name: t1
-    image: node
+  - name: greeting
     commands:
-      - echo "hello t1"
-      - echo "hello vv"
+      - echo hello world
