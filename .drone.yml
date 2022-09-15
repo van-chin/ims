@@ -1,0 +1,3 @@
+kind: pipeline
+type: docker #在docker runner中运行
+name: web
