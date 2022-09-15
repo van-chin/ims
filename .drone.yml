@@ -43,7 +43,4 @@ steps:
       tags:
         - latest
         - 0.0.1
-    commands:
-      - echo build image
-      - echo build for image
 
