@@ -2,3 +2,8 @@ kind: pipeline
 type: docker #在docker runner中运行
 name: docker-test
 
+steps:
+  - name: t1
+    commands:
+      - echo "hello t1"
+      - echo "hello vv"
