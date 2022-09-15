@@ -1,20 +1,4 @@
 kind: pipeline
-type: ssh
-name: ssh-default
+type: docker #在docker runner中运行
+name: docker-test
 
-#platform:
-#  os: linux
-#  arch: amd64
-
-# sssf
-
-server:
-  host: 192.168.100.136
-  user: van
-  password:
-    from_secret: '0.1234'
-
-steps:
-  - name: greeting
-    commands:
-      - echo hello world
