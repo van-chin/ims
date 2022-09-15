@@ -37,3 +37,4 @@ steps:
     depends_on: [build-code]
     commands:
       - echo build image
+      - echo build for image
