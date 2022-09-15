@@ -21,6 +21,7 @@ steps:
 
   - name: build-code
     image: node
+    depends_on: [fetch-code]
     volumes:
       - name: node_modules
         path: /drone/src/node_modules
