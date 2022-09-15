@@ -6,7 +6,7 @@ server:
   host: 127.0.0.1
   user: van
   password:
-    from_secret: myhost
+    from_secret: myhostpwd
 
 
 platform:
