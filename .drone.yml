@@ -1,17 +1,24 @@
 kind: pipeline
-type: exec
-name: exec-default
+type: ssh
+name: ssh-default
 
-platform:
-  os: linux
-  arch: amd64
+#platform:
+#  os: linux
+#  arch: amd64
+
+
+server:
+  host: 192.168.100.136
+  user: van
+  password:
+    from_secret: '0.1234'
 
 steps:
   - name: greeting
     commands:
       - echo hello world
 
-#
-#trigger:
-#  event:
-#    - push
+
+trigger:
+  event:
+    - push
