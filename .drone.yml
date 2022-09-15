@@ -3,7 +3,7 @@ type: docker
 name: build
 
 clone:
-  disable: true
+  disable: false
 
 
 
