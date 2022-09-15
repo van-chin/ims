@@ -6,10 +6,18 @@ clone:
   disable: true
 
 
+volumes:
+  - name: node_modules
+    host:
+      path: /data/drones/data/node_modules
+
 
 steps:
   - name: greeting
     image: node
+    volumes:
+      - name: node_modules
+        path: /drone/src/node_modules
     commands:
       - git clone http://Van:0.1234@192.168.100.136:3000/ims/ims.chin.ink.git
       - cd ims.chin.ink && ls
