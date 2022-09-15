@@ -12,3 +12,4 @@ steps:
     image: node
     commands:
       - echo hello world
+      - echo ok sucess
