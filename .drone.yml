@@ -11,7 +11,7 @@ steps:
   - name: greeting
     image: node
     commands:
-      - git clone http://gitea.inlin.cloud.local/ims/ims.chin.ink.git
+      - git clone http://192.168.100.136:3000/ims/ims.chin.ink.git
       - git version
       - echo hello world
       - echo ok sucess
