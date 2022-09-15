@@ -25,13 +25,33 @@ Object.keys(modules).forEach((key) => {
 // console.info('consolesRoutes =>',routeModuleList[1]);
 export const asyncRoutes = [PAGE_NOT_FOUND_ROUTE, ...routeModuleList];
 
+// export const RootRoute: AppRouteRecordRaw = {
+//   path: "/",
+//   name: "Root",
+//   redirect: PageEnum.BASE_HOME,
+//   meta: {
+//     title: "Root",
+//   },
+// };
+
 export const RootRoute: AppRouteRecordRaw = {
   path: "/",
   name: "Root",
-  redirect: PageEnum.BASE_HOME,
+  component: EMPTY_LAYOUT,
   meta: {
-    title: "Root",
+    title: "Index",
   },
+  children:[
+    {
+      path: "/",
+      name: "Demo.Index",
+      component: () => import("@/views/modules/tests/index.vue"),
+      meta: {
+        title: "Demo.test",
+        icon: "simple-icons:about-dot-me",
+      },
+    },
+  ]
 };
 
 export const LoginRoute: AppRouteRecordRaw = {

@@ -1,4 +1,7 @@
-<template>Index</template>
+<template>
+
+  123123
+</template>
 
 <script lang="ts" setup></script>
 
