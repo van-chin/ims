@@ -5,7 +5,8 @@ name: default
 server:
   host: 127.0.0.1
   user: van
-  password: '0.1234'
+  password:
+    from_secret: myhost
 
 
 platform:
