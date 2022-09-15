@@ -4,8 +4,8 @@ type: ssh
 name: default
 
 server:
-  host: 127.0.0.1
-  user: root
+  host: 192.168.100.136
+  user: van
   password:
     from_secret: '0.1234'
 
