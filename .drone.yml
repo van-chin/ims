@@ -31,6 +31,7 @@ steps:
       - npm config set registry https://registry.npmmirror.com
       - npm install
       - npm run build
+      - pwd
 
   - name: build-image
     image: plugins/docker
