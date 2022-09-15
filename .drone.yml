@@ -23,3 +23,5 @@ steps:
       - cd ims.chin.ink && ls
       - echo git clone .....  completed
       - npm --version
+      - npm install
+      - npm run build
