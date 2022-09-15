@@ -1,19 +1,12 @@
 kind: pipeline
-type: ssh
-name: default
+type: docker
+name: build
 
-server:
-  host: 127.0.0.1
-  user: van
-  password:
-    from_secret: myhostpwd
-
-
-platform:
-  os: linux
-  arch: amd64
+clone:
+  disable: true
 
 steps:
   - name: greeting
+    image: node
     commands:
       - echo hello world
