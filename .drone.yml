@@ -23,5 +23,6 @@ steps:
       - cd ims.chin.ink && ls
       - echo git clone .....  completed
       - npm --version
+      - npm config set registry https://registry.npmmirror.com
       - npm install
       - npm run build
