@@ -13,13 +13,13 @@ volumes:
 
 
 steps:
-  - name: fetch code
+  - name: fetch-code
     image: node
     commands:
       - git clone http://Van:0.1234@192.168.100.136:3000/ims/ims.chin.ink.git
       - echo 'git clone .....  completed'
 
-  - name: build code
+  - name: build-code
     image: node
     volumes:
       - name: node_modules
@@ -30,3 +30,9 @@ steps:
       - npm config set registry https://registry.npmmirror.com
       - npm install
       - npm run build
+
+  - name: build-image
+    image: plugins/docker
+    depends_on: [build-code]
+    commands:
+      - echo build image
