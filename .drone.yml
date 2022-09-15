@@ -3,7 +3,7 @@ type: docker
 name: build
 
 clone:
-  disable: false
+  disable: true
 
 
 
@@ -11,5 +11,7 @@ steps:
   - name: greeting
     image: node
     commands:
+      - git clone http://gitea.inlin.cloud.local/ims/ims.chin.ink.git
+      - git version
       - echo hello world
       - echo ok sucess
