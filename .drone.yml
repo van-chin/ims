@@ -36,12 +36,12 @@ steps:
   - name: build-image
     image: plugins/docker
     depends_on: [build-code]
-    commands:
-      - pwd
+#    commands:
+#      - pwd
     settings:
       username: inlins
       password: dckh.1234
-      dockerfile: deploy/Dockerfile
+      dockerfile: ims.chin.ink/deploy/Dockerfile
       repo: ims/v1
       tags:
         - latest
