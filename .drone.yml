@@ -31,7 +31,7 @@ steps:
       - npm config set registry https://registry.npmmirror.com
       - npm install
       - npm run build
-      - cd ../ && mkdir deploy
+      - cd ../
 
   - name: build-image
     image: plugins/docker
