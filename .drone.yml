@@ -42,7 +42,7 @@ steps:
       username: inlins
       password: dckh.1234
       dockerfile: ims.chin.ink/deploy/Dockerfile
-      repo: ims/v1
+      repo: inlins/van-php
       tags:
         - latest
         - 0.0.1
