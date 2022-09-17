@@ -43,7 +43,7 @@ steps:
 
   - name: build-image
     image: plugins/docker
-    depends_on: [build-code]
+    depends_on: [build-code,build-tags]
 #    commands:
 #      - pwd
     settings:
