@@ -82,6 +82,10 @@ steps:
       script:
         - echo ====开始部署=======
         - docker pull inlins/lnmp-nginx:latest
-        - pwd
+        - cd /www/wwwroot/ims.chin.ink/deploy
         - ls
+        - docker compose -p docker-prod down
+        - docker volume rm ims-chin-ink
+        - docker compose -f /www/wwwroot/ims.chin.ink/deploy/docker-prod.yml -p docker-prod up -d
+        - docker rmi $(docker images | grep lnmp-nginx | grep none | awk  '{print $3}')
         - echo ====部署成功=======
