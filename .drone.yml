@@ -90,6 +90,7 @@ steps:
 
   - name: dingtalk
     image: lddsb/drone-dingtalk-message
+    depends_on: [deploy-project]
     settings:
       token: 6471ee9a262e5be891b93d52dde77ebd6e37e2f5c7051987d906747c200d737b
       type: markdown
