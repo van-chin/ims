@@ -54,3 +54,34 @@ steps:
       dockerfile: deploy/Dockerfile
       repo: inlins/lnmp-nginx
 
+
+---
+kind: pipeline
+type: docker
+name: deploy
+
+depends_on:
+  - build
+
+
+clone:
+  disable: true
+
+steps:
+  - name: deploy-project
+    image: appleboy/drone-ssh
+    settings:
+      host:
+        from_secret: deploy_server_host
+      user:
+        from_secret: deploy_server_username
+      password:
+        from_secret: deploy_server_password
+      port: 2202
+      command_timeout: 2m
+      script:
+        - echo ====开始部署=======
+        - docker pull inlins/lnmp-nginx:latest
+        - pwd
+        - ls
+        - echo ====部署成功=======
