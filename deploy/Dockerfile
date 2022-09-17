@@ -5,3 +5,5 @@ FROM --platform=$TARGETPLATFORM nginx:latest
 
 LABEL maintainer="inlins/lnmp-nginx <van.chin@qq.com>"
 
+
+COPY dist /usr/share/nginx/html
