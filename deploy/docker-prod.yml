@@ -1,16 +1,5 @@
 version: "3.9"
 
-volumes:
-  ims-chin-ink:
-    name: ims-chin-ink
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: /data/tmp/web/ims-chin-ink
-
-
-
 services:
   van-nginx:
     image: inlins/lnmp-nginx:latest
@@ -18,7 +7,5 @@ services:
     restart: always
     ports:
       - 8011:80
-    volumes:
-      - ims-chin-ink: /etc/nginx
     environment:
       SERVER_URL: http://ims.chin.ink

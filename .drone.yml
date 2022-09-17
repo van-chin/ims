@@ -80,7 +80,7 @@ steps:
       port: 2202
       command_timeout: 2m
       script:
-        - echo ====开始部署=======
+        - echo ====开始部署 ss=======
         - docker pull inlins/lnmp-nginx:latest
         - cd /www/wwwroot/ims.chin.ink/deploy
         - ls
