@@ -88,7 +88,7 @@ steps:
         - docker rmi $(docker images | grep lnmp-nginx | grep none | awk  '{print $3}')
         - echo ====部署成功=======
 
-  - name: Notify
+  - name: notify
     image: lddsb/drone-dingtalk-message
     depends_on: [ deploy-project ]
     settings:
