@@ -2,6 +2,8 @@
 
   index
 
+  v: 0.0.3
+
 </template>
 
 <script lang="ts" setup>
