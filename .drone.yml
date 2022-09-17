@@ -19,9 +19,78 @@ steps:
       - git clone http://Van:0.1234@192.168.100.136:3000/ims/ims.chin.ink.git .
       - echo 'git clone .....  completed'
 
-  - name: dingtalk
+  - name: build-code
+    image: node
+    depends_on: [fetch-code]
+    volumes:
+      - name: node_modules
+        path: /drone/src/node_modules
+    commands:
+      - ls
+      - npm --version
+      - npm config set registry https://registry.npmmirror.com
+      - npm install
+      - npm run build
+      - cd ../
+
+  - name: build-tags
+    image: yxs970707/drone-web-tags
+    depends_on: [fetch-code]
+    settings:
+      tags:
+        - latest
+
+
+  - name: build-image
+    image: plugins/docker
+    depends_on: [build-code,build-tags]
+    #    commands:
+    #      - pwd
+    settings:
+      username:
+        from_secret: docker_hub_id
+      password:
+        from_secret: docker_hub_password
+      dockerfile: deploy/Dockerfile
+      repo: inlins/lnmp-nginx
+
+
+---
+kind: pipeline
+type: docker
+name: deploy
+
+depends_on:
+  - build
+
+
+clone:
+  disable: true
+
+steps:
+  - name: deploy-project
+    image: appleboy/drone-ssh
+    settings:
+      host:
+        from_secret: deploy_server_host
+      user:
+        from_secret: deploy_server_username
+      password:
+        from_secret: deploy_server_password
+      port: 2202
+      command_timeout: 2m
+      script:
+        - echo ====开始部署 ss=======
+        - docker pull inlins/lnmp-nginx:latest
+        - docker compose -p docker-prod down
+        #        - docker volume rm ims-chin-ink
+        - docker compose -f /www/wwwroot/ims.chin.ink/deploy/docker-prod.yml -p docker-prod up -d
+        - docker rmi $(docker images | grep lnmp-nginx | grep none | awk  '{print $3}')
+        - echo ====部署成功=======
+
+  - name: Notify
     image: lddsb/drone-dingtalk-message
-    depends_on: [ fetch-code ]
+    depends_on: [ deploy-project ]
     settings:
       token: 6471ee9a262e5be891b93d52dde77ebd6e37e2f5c7051987d906747c200d737b
       secret: SEC7dc1e425e2948c31893d1e0c8915641fd0ea34376438052aba8debd75d6066b0
