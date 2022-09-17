@@ -7,4 +7,4 @@ FROM --platform=$TARGETPLATFORM nginx:latest
 
 LABEL maintainer="inlins/lnmp-nginx <van.chin@qq.com>"
 
-RUN echo '<h1>Hello ,Docker Dockerfile !</h1>' > /usr/share/nginx/html/index.html
+RUN echo '<h1>Hello ,Docker v1 Dockerfile !</h1>' > /usr/share/nginx/html/index.html
