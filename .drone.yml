@@ -16,7 +16,7 @@ steps:
   - name: fetch-code
     image: node
     commands:
-      - git clone http://Van:0.1234@192.168.100.136:3000/ims/ims.chin.ink.git
+      - git clone http://Van:0.1234@192.168.100.136:3000/ims/ims.chin.ink.git .
       - echo 'git clone .....  completed'
 
   - name: build-code
@@ -26,7 +26,7 @@ steps:
       - name: node_modules
         path: /drone/src/node_modules
     commands:
-      - cd ims.chin.ink && ls
+      - ls
       - npm --version
       - npm config set registry https://registry.npmmirror.com
       - npm install
@@ -51,7 +51,7 @@ steps:
         from_secret: docker_hub_id
       password:
         from_secret: docker_hub_password
-      dockerfile: ims.chin.ink/deploy/Dockerfile
+      dockerfile: deploy/Dockerfile
       repo: inlins/lnmp-nginx
       tags:
         - latest
