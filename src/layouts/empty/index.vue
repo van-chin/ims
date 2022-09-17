@@ -1,7 +1,7 @@
 <template>
   <div class="empty">
-    123
+    empty-start
     <router-view></router-view>
-    2343
+    empty-end
   </div>
 </template>

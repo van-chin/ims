@@ -19,8 +19,8 @@
     "moduleResolution": "Node",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "#/*": ["./types/*"]
+      "@/*": ["./src/*/*"],
+      "#/*": ["./types/*/*"]
     },
     "strict": true,
     "jsx": "preserve",

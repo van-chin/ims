@@ -1,13 +1,14 @@
 <template>
-$END$
+
+  index
+
 </template>
 
-<script>
-export default {
-name: "index.vue"
-}
+<script lang="ts" setup>
+defineOptions({
+  name:'AppIndex',
+  inheritAttrs:false,
+})
 </script>
 
-<style scoped>
-
-</style>
+<style lang="less" scoped></style>

@@ -1,5 +1,5 @@
 <template>
-  Exception
+  error-log
 </template>
 
 <script lang="ts" setup>

@@ -20,21 +20,17 @@ getRouteNames(basicRoutes);
 
 const routes = [...asyncRoutes, ...basicRoutes];
 
-// console.info("routes =>", routes);
-
 // app router
+
 export const router = createRouter({
+  // @ts-ignore
   history: createWebHistory(import.meta.env.VITE_PUBLIC_PATH),
   routes: routes as unknown as RouteRecordRaw[],
   strict: true,
   scrollBehavior: () => ({ left: 0, top: 0 }),
 });
 
-// console.log("asyncRoutes =>", asyncRoutes);
 
-// console.log("basicRoutes =>", basicRoutes);
-
-// console.info("router =>", router);
 
 // router.addRoute()
 

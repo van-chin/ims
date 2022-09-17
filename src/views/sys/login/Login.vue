@@ -1,6 +1,6 @@
 <template>
 
-  Index
+  login
 
 </template>
 

@@ -1,6 +1,6 @@
 <template>
 
-  Exception
+  redirect
 
 </template>
 

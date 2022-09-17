@@ -15,14 +15,12 @@ import {MenuModeEnum, MenuTypeEnum} from '@/enums/menuEnum';
 import useLayoutsStore from "@/stores/modules/layoutsStore";
 
 
+const route = useRoute();
 
-// console.info(defineOptions());
-
-// defineOptions({
-//   name:'AppProvider',
-//   inheritAttrs:false,
-// })
-
+defineOptions({
+  name:'AppProvider',
+  inheritAttrs:false,
+})
 
 
 const props = defineProps({
