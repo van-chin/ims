@@ -5,19 +5,16 @@ name: build
 clone:
   disable: true
 
-
 volumes:
   - name: node_modules
     host:
       path: /data/drones/data/node_modules
-
 
 steps:
   - name: fetch-code
     image: node
     commands:
       - git clone http://Van:0.1234@192.168.100.136:3000/ims/ims.chin.ink.git .
-      - echo 'git clone .....  completed'
 
   - name: build-code
     image: node
@@ -26,12 +23,9 @@ steps:
       - name: node_modules
         path: /drone/src/node_modules
     commands:
-      - ls
-      - npm --version
       - npm config set registry https://registry.npmmirror.com
       - npm install
       - npm run build
-      - cd ../
 
   - name: build-tags
     image: yxs970707/drone-web-tags
@@ -39,7 +33,6 @@ steps:
     settings:
       tags:
         - latest
-
 
   - name: build-image
     image: plugins/docker
@@ -80,13 +73,10 @@ steps:
       port: 2202
       command_timeout: 2m
       script:
-        - echo ====开始部署 ss=======
         - docker pull inlins/lnmp-nginx:latest
         - docker compose -p docker-prod down
-        #        - docker volume rm ims-chin-ink
         - docker compose -f /www/wwwroot/ims.chin.ink/deploy/docker-prod.yml -p docker-prod up -d
         - docker rmi $(docker images | grep lnmp-nginx | grep none | awk  '{print $3}')
-        - echo ====部署成功=======
 
   - name: notify
     image: lddsb/drone-dingtalk-message
