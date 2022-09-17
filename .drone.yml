@@ -87,3 +87,12 @@ steps:
         - docker compose -f /www/wwwroot/ims.chin.ink/deploy/docker-prod.yml -p docker-prod up -d
         - docker rmi $(docker images | grep lnmp-nginx | grep none | awk  '{print $3}')
         - echo ====部署成功=======
+
+  - name: dingtalk
+    image: lddsb/drone-dingtalk-message
+    settings:
+      token: 6471ee9a262e5be891b93d52dde77ebd6e37e2f5c7051987d906747c200d737b
+      type: markdown
+      message_color: true
+      message_pic: true
+      sha_link: true
