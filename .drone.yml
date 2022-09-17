@@ -33,14 +33,24 @@ steps:
       - npm run build
       - cd ../
 
+  - name: build-tags
+    image: yxs970707/drone-web-tags
+    depends_on: [fetch-code]
+    settings:
+      tags:
+        - latest
+
+
   - name: build-image
     image: plugins/docker
     depends_on: [build-code]
 #    commands:
 #      - pwd
     settings:
-      username: inlins
-      password: dckh.1234
+      username:
+        from_secret: docker_hub_id
+      password:
+        from_secret: docker_hub_password
       dockerfile: ims.chin.ink/deploy/Dockerfile
       repo: inlins/lnmp-nginx
       tags:
