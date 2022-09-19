@@ -1,5 +1,7 @@
 import { defineStore } from "pinia";
 
+import { loginApi } from "@/api/modules/ms/adminApi"
+
 
 
 /**
@@ -57,7 +59,7 @@ interface AdminsState {
 
 
 
-const useAdminsStore = defineStore("admins", {
+ const useAdminStore = defineStore("admins", {
     state: (): AdminsState => ({
         // token
         token: undefined,
@@ -1266,13 +1268,20 @@ const useAdminsStore = defineStore("admins", {
     },
 
     actions: {
+        login(data:any) {
+            console.info('adminStore.login.data =>',data);
 
+            loginApi(data).then(rsp=>{
+                console.info('rsp =>',rsp);
+            })
+
+        }
     },
 });
 
-export default useAdminsStore;
+export default useAdminStore;
 
 // Need to be used outside the setup
-export function useAdminsStoreWithOut() {
-    return useAdminsStore(store);
+export function useAdminStoreWithOut() {
+    return useAdminStore(store);
 }

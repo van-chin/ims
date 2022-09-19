@@ -110,7 +110,7 @@ import { useStyle } from "@/hooks/web/useStyle";
 import { AppLogo } from "@/components/Application";
 import useLayoutsStore from "@/stores/modules/layoutsStore";
 import NavMenu from "@/components/Menu";
-import useAdminsStore from "@/stores/modules/adminsStore";
+import useAdminsStore from "@/stores/modules/adminStore";
 
 import { useAppInject } from '@/hooks/web/useAppInject';
 import { Icon } from "@/components/Icon";

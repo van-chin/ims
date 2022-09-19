@@ -7,17 +7,18 @@ import type { RequestOptions, Result } from "#/axios";
 import type { AxiosTransform, CreateAxiosOptions } from "./axiosTransform";
 import { VAxios } from "./Axios";
 import { checkStatus } from "./checkStatus";
-import { useGlobSetting } from "@/hooks/settings";
+import { useGlobSetting } from "@/hooks/setting";
 import { useMessage } from "@/hooks/web/useMessage";
 import { RequestEnum, ResultEnum, ContentTypeEnum } from "@/enums/httpEnum";
 import { isString } from "@/utils/is";
 import { getToken } from "@/utils/auth";
 import { setObjToUrlParams, deepMerge } from "@/utils";
+// @ts-ignore
 import { useErrorLogStoreWithOut } from "@/stores/modules/errorLog";
 import { useI18n } from "@/hooks/web/useI18n";
 import { joinTimestamp, formatRequestDate } from "./helper";
 
-import { useAdminsStoreWithOut } from "@/stores/modules/admins";
+import { useAdminStoreWithOut } from "@/stores/modules/adminStore";
 
 const globSetting = useGlobSetting();
 const urlPrefix = globSetting.urlPrefix;
@@ -73,10 +74,10 @@ const transform: AxiosTransform = {
     switch (code) {
       case ResultEnum.TIMEOUT:
         timeoutMsg = t("sys.api.timeoutMessage");
-        const adminsStore = useAdminsStoreWithOut();
-        adminsStore.setToken(undefined);
-
-        adminsStore.logout(true);
+        const adminsStore = useAdminStoreWithOut();
+        // adminsStore.setToken(undefined);
+        //
+        // adminsStore.logout(true);
         break;
       default:
         if (message) {

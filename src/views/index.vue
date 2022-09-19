@@ -11,7 +11,14 @@
       <div class="text-stroke-1 text-5xl">Vidage.js</div>
       <div class="mt-18px">YOUR SOLUTION TO BACKGROUND VIDEO & IMAGE</div>
 
-      <div class="mt-18px"><a-button size="large" shape="round" ghost type="default">Get Started</a-button></div>
+      <div class="mt-18px ">
+        <a-space>
+
+        
+        <a-button size="large" shape="round" ghost type="default">Get Started</a-button>
+        <a-button size="large" shape="round" ghost type="default">Why Vite</a-button>
+      </a-space>
+      </div>
     </div>
   </div>
 
@@ -24,10 +31,10 @@ import Vidage from 'vidage'
 
 // console.info('Vidage =>',Vidage);
 
-// defineOptions({
-//   name:'AppIndex',
-//   inheritAttrs:false,
-// })
+defineOptions({
+  name:'AppIndex',
+  inheritAttrs:false,
+})
 
 
 onMounted(()=>{

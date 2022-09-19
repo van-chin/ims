@@ -3,7 +3,7 @@ import { useMessage } from "@/hooks/web/useMessage";
 import { useI18n } from "@/hooks/web/useI18n";
 // import router from '@/router';
 // import { PageEnum } from '@/enums/pageEnum';
-import { useAdminsStoreWithOut } from "@/stores/modules/admins";
+import { useAdminStoreWithOut } from "@/stores/modules/adminStore";
 import projectSetting from "@/settings/projectSetting";
 import { SessionTimeoutProcessingEnum } from "@/enums/appEnum";
 
@@ -17,7 +17,7 @@ export function checkStatus(
   errorMessageMode: ErrorMessageMode = "message"
 ): void {
   const { t } = useI18n();
-  const adminsStore = useAdminsStoreWithOut();
+  const adminsStore = useAdminStoreWithOut();
   let errMessage = "";
 
   console.info("status =>", status);
@@ -30,13 +30,13 @@ export function checkStatus(
     // Jump to the login page if not logged in, and carry the path of the current page
     // Return to the current page after successful login. This step needs to be operated on the login page.
     case 401:
-      adminsStore.setToken(undefined);
+      // adminsStore.setToken(undefined);
       errMessage = msg || t("sys.api.errMsg401");
       if (stp === SessionTimeoutProcessingEnum.PAGE_COVERAGE) {
-        adminsStore.setSessionTimeout(true);
+        // adminsStore.setSessionTimeout(true);
       } else {
         console.log("401111=>");
-        adminsStore.logout(true);
+        // adminsStore.logout(true);
       }
       break;
     case 403:

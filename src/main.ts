@@ -7,6 +7,8 @@ import App from "./App.vue";
 
 import { router, setupRouter } from "@/router";
 
+import { setupI18n } from '@/locales/setupI18n';
+
 
 import { initAppConfigStore } from "@/logics/initAppConfig"
 
@@ -23,7 +25,7 @@ import { setupStore } from "@/stores";
     // Initialize internal system configuration
     initAppConfigStore();
 
-    // await setupI18n(app);
+    await setupI18n(app);
 
     // Configure routing
     setupRouter(app);
