@@ -1,5 +1,5 @@
 <template>
-  Exception 404
+  Page 404
 </template>
 
 <script lang="ts" setup>

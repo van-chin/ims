@@ -139,6 +139,7 @@
         account: data.account,
         mode: 'none', //不要默认的错误提示
       });
+
       if (userInfo) {
         notification.success({
           message: t('sys.login.loginSuccessTitle'),

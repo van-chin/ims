@@ -20,6 +20,7 @@
         :data="states.navMenus"
         :mode="`inline`"
         theme="dark"
+        @select="onMenuSelect"
         class="asider-menu"
         :props="siderMenuProps"
         v-model:openKeys="states.openKeys"
@@ -38,6 +39,7 @@
             :data="states.navMenus"
             :mode="`inline`"
             theme="dark"
+            @select="onMenuSelect"
             :inline-collapsed="states.layoutsConfig.msLayout.inlineCollapsed"
             class="asider-menu"
             :props="siderMenuProps"
@@ -110,7 +112,7 @@ import { useStyle } from "@/hooks/web/useStyle";
 import { AppLogo } from "@/components/Application";
 import useLayoutsStore from "@/stores/modules/layoutsStore";
 import NavMenu from "@/components/Menu";
-import useAdminsStore from "@/stores/modules/adminStore";
+import useAdminStore from "@/stores/modules/adminStore";
 
 import { useAppInject } from '@/hooks/web/useAppInject';
 import { Icon } from "@/components/Icon";
@@ -132,12 +134,12 @@ import TabBar from "./components/tab-bar.vue";
 const { prefixCls } = useStyle("ms-layout");
 
 const layoutsStore = useLayoutsStore();
-
-const adminsStore = useAdminsStore();
+import { getAuthCache, setAuthCache } from "@/utils/auth";
+const adminStore = useAdminStore();
 
 const layoutsConfig = layoutsStore.getLayoutsConfig;
 
-
+import { router } from "@/router";
 
 const { getIsMobile,screenCls,realWidth } = useAppInject();
 
@@ -148,7 +150,28 @@ const toggleMenuDrawer = () => {
     drawerVisible.value = !drawerVisible.value;
   }
 }
+const onMenuSelect = ({key} ) => {
+  // console.info('onMenuSelect.item =>',item);
+  console.info('onMenuSelect.key =>',key);
 
+  console.info('onMenuSelect.router =>',router);
+  let currentData = getAuthCache(`path-data-${key}`);
+  // console.info("currentData 4 =>", currentData);
+  let currentItem = currentData.slice(-1)[0];
+
+  console.info('onMenuSelect.currentItem =>',currentItem);
+
+  router.push(`/ms/${currentItem.options.path}`).then(() => {
+    localStorage.setItem("current_selected_id", key);
+  });
+
+
+  // router.push(`/ms/${currentItem.options.path}`).then(() => {
+  //   localStorage.setItem("current_selected_id", key);
+  // });
+
+  // console.info('onMenuSelect.selectedKeys =>',selectedKeys);
+}
 
 const getBackTopTarget = () => {
   return document.querySelector("#ims-ms-layout-main-content");
@@ -231,7 +254,7 @@ const states = computed(() => {
     layoutsConfig:layoutsStore.getLayoutsConfig,
 
     menuSelectedKeys: layoutsStore.menuSelectedKeys,
-    navMenus: adminsStore.getNavMenus,
+    navMenus: adminStore.getNavMenus,
     topMenus: layoutsStore.topMenus,
   };
 });

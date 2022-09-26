@@ -6,8 +6,31 @@ import {
   EMPTY_LAYOUT,
   EXCEPTION_COMPONENT,
   PAGE_NOT_FOUND_NAME,
+  PAGE_NOT_FOUND_COMPONENT,
 } from "@/router/constant";
 
+
+export const NOT_FOUND_ROUTE = {
+  path: "/:pathMatch(.*)*",
+  name: PAGE_NOT_FOUND_NAME,
+  component: PAGE_NOT_FOUND_COMPONENT,
+  meta: {
+    title: "ErrorPage",
+    hideBreadcrumb: true,
+    hideMenu: true,
+  },
+}
+
+export const EXCEPTION_ROUTE = {
+  path: "/:path(.*)*",
+  name: PAGE_NOT_FOUND_NAME,
+  component: EXCEPTION_COMPONENT,
+  meta: {
+    title: "ErrorPage",
+    hideBreadcrumb: true,
+    hideMenu: true,
+  },
+}
 // 404 on a page
 export const PAGE_NOT_FOUND_ROUTE: AppRouteRecordRaw = {
   path: "/:path(.*)*",
@@ -19,16 +42,7 @@ export const PAGE_NOT_FOUND_ROUTE: AppRouteRecordRaw = {
     hideMenu: true,
   },
   children: [
-    {
-      path: "/:path(.*)*",
-      name: PAGE_NOT_FOUND_NAME,
-      component: EXCEPTION_COMPONENT,
-      meta: {
-        title: "ErrorPage",
-        hideBreadcrumb: true,
-        hideMenu: true,
-      },
-    },
+    EXCEPTION_ROUTE,
   ],
 };
 

@@ -6,6 +6,8 @@ import { createLocalStorage, createSessionStorage } from "@/utils/cache";
 import { Memory } from "./memory";
 import {
   TOKEN_KEY,
+  ACCESS_TOKEN_KEY,
+  REFRESH_TOKEN_KEY,
   USER_INFO_KEY,
   ROLES_KEY,
   LOCK_INFO_KEY,
@@ -13,14 +15,21 @@ import {
   LAYOUTS_CFG_KEY,
   APP_LOCAL_CACHE_KEY,
   APP_SESSION_CACHE_KEY,
-  MULTIPLE_TABS_KEY,
+  MULTIPLE_TABS_KEY, AUTH_OPERATIONS, NAV_MENUS_KEY, VIEW_NODES_KEY,
 } from "@/enums/cacheEnum";
 import { DEFAULT_CACHE_TIME } from "@/settings/encryptionSetting";
 import { toRaw } from "vue";
 import { pick, omit } from "lodash-es";
 
+//
 interface BasicStore {
   [TOKEN_KEY]: string | number | null | undefined;
+  [ACCESS_TOKEN_KEY]: string | number | null | undefined;
+  [REFRESH_TOKEN_KEY]: string | number | null | undefined;
+  AUTH_OPERATIONS:number[];
+  [NAV_MENUS_KEY]:number[];
+  [VIEW_NODES_KEY]:number[];
+
   [USER_INFO_KEY]: UserInfo;
   [ROLES_KEY]: string[];
   [LOCK_INFO_KEY]: LockInfo;

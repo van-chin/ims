@@ -7,7 +7,7 @@ export enum PageEnum {
   DINGTALK_BIND_REDIRECT_URI = '/bind/dingtalk',
   // basic home path
   // BASE_HOME = '/dashboard',
-  BASE_HOME = '/consoles/dashboard/analysis',
+  BASE_HOME = '/ms/dashboard/analysis',
   // BASE_HOME = '/console/dashboard/analysis/index',
   // BASE_HOME = '/consoles/dashboard/analysis',
   // BASE_HOME = '/consoles/dashboard/analysis/index',

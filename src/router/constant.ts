@@ -7,6 +7,9 @@ export const PAGE_NOT_FOUND_NAME = "PageNotFound";
 export const EXCEPTION_COMPONENT = () =>
   import("@/views/sys/exception/Exception.vue");
 
+export const PAGE_NOT_FOUND_COMPONENT = () =>
+    import("@/views/sys/exception/pageNotFound.vue");
+
 /**
  * @description: default layout
  */

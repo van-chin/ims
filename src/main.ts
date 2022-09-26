@@ -12,12 +12,21 @@ import { setupI18n } from '@/locales/setupI18n';
 
 import { initAppConfigStore } from "@/logics/initAppConfig"
 
+import { setupRouterGuard } from '@/router/guards';
+
+import formCreate from '@form-create/ant-design-vue'
+
+import install from '@form-create/ant-design-vue/auto-import';
+formCreate.use(install);
+
 
 
 import { setupStore } from "@/stores";
 
 (async function bootstrap() {
     const app = createApp(App);
+
+    app.use(formCreate);
 
     // Configure store
     setupStore(app);
@@ -29,6 +38,9 @@ import { setupStore } from "@/stores";
 
     // Configure routing
     setupRouter(app);
+
+    //
+    setupRouterGuard(router);
 
     console.info("bootstrap  111 ok...");
 

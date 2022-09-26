@@ -4,10 +4,10 @@ import { MS_LAYOUT } from "@/router/constant";
 const preffix = "/ms";
 
 const dashboard: AppRouteModule = {
-  path: `${preffix}/dashboard`,
-  name: "dashboard",
+  path: `${preffix}`,
+  name: "ms",
   component: MS_LAYOUT,
-  redirect: "/ms/dashboard/analysis",
+  redirect: "/ms/dashboard",
   meta: {
     hideChildrenInMenu: true,
     icon: "simple-icons:about-dot-me",
@@ -15,15 +15,7 @@ const dashboard: AppRouteModule = {
     orderNo: 999,
   },
   children: [
-    {
-      path: "analysis",
-      name: "ms.dashboard.analysis",
-      component: () => import("@/views/modules/ms/dashboard/analysis/index.vue"),
-      meta: {
-        title: "ms.dashboard.analysis",
-        icon: "simple-icons:about-dot-me",
-      },
-    },
+
   ],
 };
 

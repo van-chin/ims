@@ -15,6 +15,8 @@ import { configVueMacros } from "./macros";
 
 import { configHtmlPlugin } from './html';
 
+import vueJsx from '@vitejs/plugin-vue-jsx'
+
 
 
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
@@ -27,7 +29,11 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     VITE_USE_SERVER_HTTPS,
   } = viteEnv;
 
-  const vitePlugins: (PluginOption | PluginOption[])[] = [];
+  const vitePlugins: (PluginOption | PluginOption[])[] = [
+    vueJsx({
+      // options are passed on to @vue/babel-plugin-jsx
+    })
+  ];
   // necessary
   vitePlugins.push(configVueMacros());
 

@@ -3,7 +3,7 @@ import { useAppProviderContext } from '@/components/Application';
 export function useStyle(scope: string) {
     const values = useAppProviderContext();
 
-    console.info('values =>',values);
+    // console.info('values =>',values);
 
 
     // const $style = cssModule ? useCssModule() : {};

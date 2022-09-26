@@ -271,6 +271,14 @@ function createAxios(opt?: Partial<CreateAxiosOptions>) {
 }
 export const defHttp = createAxios();
 
+export const goodHttp = createAxios({
+  requestOptions: {
+    apiUrl: 'https://api.ims.chin.local',
+    // apiUrl: 'http://api.pr.huayihuikang.test',
+    urlPrefix:'/pss',
+  },
+});
+
 // other api url
 // export const otherHttp = createAxios({
 //   requestOptions: {

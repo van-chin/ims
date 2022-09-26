@@ -22,7 +22,7 @@ Object.keys(modules).forEach((key) => {
 });
 
 
-export const asyncRoutes = [PAGE_NOT_FOUND_ROUTE, ...routeModuleList];
+export const asyncRoutes = [...routeModuleList];
 
 
 export const RootRoute: AppRouteRecordRaw = {
@@ -49,5 +49,5 @@ export const basicRoutes = [
   LoginRoute,
   ...mainOutRoutes,
   REDIRECT_ROUTE,
-  PAGE_NOT_FOUND_ROUTE,
+  // PAGE_NOT_FOUND_ROUTE,
 ];

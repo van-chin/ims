@@ -2,10 +2,11 @@
   <!-- {{states.tabBarTabs}} -->
 
   <div :class="prefixCls">
+<!--    {{ states.activeRouteKey }}-->
     <a-tabs
         ref="tabsBar"
         :class="`${prefixCls}-tabs`"
-        v-model:activeKey="activeKey"
+        v-model:activeKey="states.activeRouteKey"
         @tabScroll="callback"
         @tabClick="onTabClick"
         @change="onTabChange"
@@ -18,10 +19,10 @@
           </span>
         </div>
       </template>
-      <a-tab-pane v-for="i in 30" :key="i" >
+      <a-tab-pane v-for="(tab,index) in states.tabBarTabs" :key="tab.key" >
         <template #tab>
           <Icon class="tab-icon" :icon="`ant-design:appstore-outlined`"></Icon>
-          <span class="title">{{ `系统设置${i}` }}</span>
+          <span class="title">{{ tab.label }}</span>
           <Icon class="close"  :icon="`ant-design:close-outlined`"></Icon>
         </template>
       </a-tab-pane>
@@ -71,6 +72,14 @@ const callback: TabsProps['onTabScroll'] = val => {
   // console.log(val);
 };
 const activeKey = ref(1);
+
+const states = computed(() => {
+  return {
+    tabBarTabs: layoutsStore.tabBarTabsGetter,
+    activeRouteKey: layoutsStore.activeRouteKey,
+
+  };
+});
 
 const drCloses = [
   {
@@ -145,11 +154,13 @@ const prevTab = () => {
 }
 
 const onTabClick = () => {
-  console.info('onTabClick');
+  // console.info('onTabClick');
 }
 
-const onTabChange = () => {
-  console.info('onTabChange');
+const onTabChange = (activeKey:number) => {
+  console.info('onTabChange',activeKey);
+
+  layoutsStore.changeActiveRouteKey(activeKey);
 }
 
 // defineOptions({
