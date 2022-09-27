@@ -24,6 +24,24 @@ const dashboard: AppRouteModule = {
         icon: "simple-icons:about-dot-me",
       },
     },
+    {
+      path: "psi/purchase",
+      name: "ms.dashboard.analysis",
+      component: () => import("@/views/modules/ms/pss/purchase/index.vue"),
+      meta: {
+        title: "ms.dashboard.analysis",
+        icon: "simple-icons:about-dot-me",
+      },
+    },
+    {
+      path: "psi/delivers",
+      name: "ms.dashboard.analysis",
+      component: () => import("@/views/modules/ms/pss/delivers/index.vue"),
+      meta: {
+        title: "ms.dashboard.analysis",
+        icon: "simple-icons:about-dot-me",
+      },
+    },
   ],
 };
 
